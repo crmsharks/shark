@@ -1,52 +1,43 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const shark = document.getElementById('shark');
-    const integration = document.getElementById('integration');
-    const startButton = document.getElementById('start-button');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
 
-    let isPlaying = false;
-    let score = 0;
+.game-container {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    overflow: hidden;
+}
 
-    startButton.addEventListener('click', startGame);
-    document.addEventListener('keydown', jump);
+.shark {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background-color: #3498db;
+    bottom: 0;
+}
 
-    function startGame() {
-        startButton.style.display = 'none';
-        document.addEventListener('keydown', jump);
-        isPlaying = true;
-        animateIntegration();
-    }
+.integration {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e74c3c;
+    bottom: 0;
+}
 
-    function jump(event) {
-        if (event.keyCode === 32 && !isPlaying) {
-            isPlaying = true;
-            shark.style.animation = 'none';
-            shark.style.transform = 'translateY(-50px)';
-            setTimeout(() => {
-                shark.style.transform = 'translateY(0)';
-                shark.style.animation = 'swim 0.5s infinite alternate';
-                isPlaying = false;
-            }, 500);
-        }
-    }
-
-    function animateIntegration() {
-        if (isPlaying) {
-            const randomPosition = Math.random() * 280;
-            integration.style.left = randomPosition + 'px';
-            integration.style.animation = 'move 2s linear forwards';
-            integration.addEventListener('animationend', () => {
-                integration.style.animation = 'none';
-                score++;
-                if (score % 5 === 0) {
-                    increaseDifficulty();
-                }
-                document.getElementById('score').textContent = 'Score: ' + score;
-                animateIntegration();
-            });
-        }
-    }
-
-    function increaseDifficulty() {
-        // You can make the game more challenging by adjusting animation speed, adding more obstacles, etc.
-    }
-});
+#start-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
