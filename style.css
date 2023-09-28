@@ -4,40 +4,113 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #5a7ea4;
+    font-family: Arial, sans-serif;
 }
 
 .game-container {
     position: relative;
-    width: 300px;
-    height: 150px;
-    background-color: #f0f0f0;
+    width: 800px;
+    height: 400px;
+    background-color: #d8e1e9;
     border: 2px solid #ccc;
     overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.jpg'); /* Replace with your background image */
+    background-size: cover;
+    z-index: -1;
+}
+
+.clouds {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url('clouds.png'); /* Replace with cloud images */
+    background-repeat: repeat-x;
+    animation: moveClouds 20s linear infinite;
+}
+
+@keyframes moveClouds {
+    to {
+        left: -100%;
+    }
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #79a2c0;
 }
 
 .shark {
     position: absolute;
-    width: 50px;
-    height: 30px;
-    background-color: #3498db;
     bottom: 0;
+    left: 50px;
+    width: 120px;
+    height: 60px;
+    background-image: url('shark.png'); /* Replace with shark image */
+    background-size: contain;
+    animation: swim 0.5s infinite alternate;
 }
 
 .integration {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #e74c3c;
-    bottom: 0;
+    bottom: 10px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-image: url('integration.png'); /* Replace with integration image */
+    background-size: contain;
+    animation: moveIntegration 4s linear infinite;
+}
+
+@keyframes swim {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes moveIntegration {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 #start-button {
-    background-color: #3498db;
+    background-color: #4d7baf;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
+    border-radius: 5px;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333;
+    font-size: 24px;
 }
