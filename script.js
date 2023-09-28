@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const shark = document.getElementById('shark');
-    const integration = document.getElementById('integration');
+    const obstacle = document.getElementById('obstacle');
     const startButton = document.getElementById('start-button');
     const scoreDisplay = document.getElementById('score');
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startButton.style.display = 'none';
         document.addEventListener('keydown', jump);
         isPlaying = true;
-        animateIntegration();
+        animateObstacle();
     }
 
     function jump(event) {
@@ -30,16 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function animateIntegration() {
+    function animateObstacle() {
         if (isPlaying) {
-            const randomPosition = Math.random() * 60 + 20;
-            integration.style.top = randomPosition + 'px';
-            integration.style.animation = 'moveIntegration 4s linear forwards';
-            integration.addEventListener('animationend', () => {
-                integration.style.animation = 'none';
+            const randomPosition = Math.random() * 200 + 100;
+            obstacle.style.top = randomPosition + 'px';
+            obstacle.style.animation = 'moveObstacle 4s linear forwards';
+            obstacle.addEventListener('animationend', () => {
+                obstacle.style.animation = 'none';
                 score++;
                 scoreDisplay.textContent = 'Score: ' + score;
-                animateIntegration();
+                animateObstacle();
             });
         }
     }
