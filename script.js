@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const shark = document.getElementById('shark');
     const integration = document.getElementById('integration');
     const startButton = document.getElementById('start-button');
+    const scoreDisplay = document.getElementById('score');
 
     let isPlaying = false;
     let score = 0;
@@ -31,22 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function animateIntegration() {
         if (isPlaying) {
-            const randomPosition = Math.random() * 280;
-            integration.style.left = randomPosition + 'px';
-            integration.style.animation = 'move 2s linear forwards';
+            const randomPosition = Math.random() * 60 + 20;
+            integration.style.top = randomPosition + 'px';
+            integration.style.animation = 'moveIntegration 4s linear forwards';
             integration.addEventListener('animationend', () => {
                 integration.style.animation = 'none';
                 score++;
-                if (score % 5 === 0) {
-                    increaseDifficulty();
-                }
-                document.getElementById('score').textContent = 'Score: ' + score;
+                scoreDisplay.textContent = 'Score: ' + score;
                 animateIntegration();
             });
         }
-    }
-
-    function increaseDifficulty() {
-        // You can make the game more challenging by adjusting animation speed, adding more obstacles, etc.
     }
 });
