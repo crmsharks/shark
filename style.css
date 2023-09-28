@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #4cb1ff; /* Main background color */
+    background-color: #4cb1ff;
     font-family: Arial, sans-serif;
 }
 
@@ -12,81 +12,33 @@ body {
     position: relative;
     width: 800px;
     height: 400px;
-    background-color: #f7f7f7; /* Ground color */
+    background-color: #f7f7f7;
     border: 2px solid #ccc;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('background.jpg'); /* Replace with your background image */
-    background-size: cover;
-    z-index: -1;
-}
-
-.clouds {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-image: url('clouds.png'); /* Replace with cloud images */
-    background-repeat: repeat-x;
-    animation: moveClouds 20s linear infinite;
-}
-
-@keyframes moveClouds {
-    to {
-        left: -100%;
-    }
-}
-
-.ground {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #79a2c0;
-}
-
 .shark {
     position: absolute;
-    bottom: 100px; /* Adjust the position based on your design */
+    bottom: 100px;
     left: 50px;
-    width: 120px;
-    height: 60px;
-    background-color: #23395b; /* Dark blue color for the shark */
-    animation: swim 0.5s infinite alternate;
+    width: 100px;
+    height: 50px;
+    background-color: #23395b;
 }
 
-.integration {
+.obstacle {
     position: absolute;
-    bottom: 20px; /* Adjust the position based on your design */
-    right: 0;
+    bottom: 100px;
+    right: -40px;
     width: 40px;
-    height: 40px;
-    background-image: url('integration.png'); /* Replace with integration image */
-    background-size: contain;
-    animation: moveIntegration 4s linear infinite;
+    height: 50px;
+    background-color: #e74c3c;
+    animation: moveObstacle 4s linear infinite;
 }
 
-@keyframes swim {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes moveIntegration {
+@keyframes moveObstacle {
     0% {
         transform: translateX(100%);
     }
