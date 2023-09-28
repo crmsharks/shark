@@ -58,7 +58,7 @@ body {
 
 .shark {
     position: absolute;
-    bottom: 80px; /* Adjust the position based on your design */
+    bottom: 100px; /* Adjust the position based on your design */
     left: 50px;
     width: 120px;
     height: 60px;
