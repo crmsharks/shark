@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #5a7ea4;
+    background-color: #4cb1ff; /* Main background color */
     font-family: Arial, sans-serif;
 }
 
@@ -12,7 +12,7 @@ body {
     position: relative;
     width: 800px;
     height: 400px;
-    background-color: #d8e1e9;
+    background-color: #f7f7f7; /* Ground color */
     border: 2px solid #ccc;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -62,8 +62,7 @@ body {
     left: 50px;
     width: 120px;
     height: 60px;
-    background-image: url('shark.png'); /* Replace with shark image */
-    background-size: contain;
+    background-color: #23395b; /* Dark blue color for the shark */
     animation: swim 0.5s infinite alternate;
 }
 
